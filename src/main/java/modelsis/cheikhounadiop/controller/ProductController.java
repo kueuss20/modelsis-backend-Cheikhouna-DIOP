@@ -31,7 +31,7 @@ public class ProductController {
 	 @PutMapping
 	  public Long updateProduct(@RequestBody ProductDto dto) throws ProductException {
 		  
-		 return productService.add(dto);
+		 return productService.update(dto);
 	  }
 	 @GetMapping(consumes = MediaType.ALL_VALUE)
 	  public List<ProductDto> listProduct() {

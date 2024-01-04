@@ -25,6 +25,10 @@ public class ProductService {
 	
 	public Long add(ProductDto dto) throws ProductException {
 		
+		Optional<Product>  existProduct = productRepos.findByName(dto.getName());
+		if(existProduct.isPresent()) {
+			throw new ProductException("le  produit existe deja invalide");
+		}else {
 		Optional<ProductType>  prodType = prdTypeRepos.findById(dto.getType());
 		if(prodType.isPresent()) {
 		Product product = new Product();
@@ -36,6 +40,7 @@ public class ProductService {
 		}else  {
 			throw new ProductException("le type de produit est invalide");
 		}	
+		}
 	}
 public Long update(ProductDto dto) throws ProductException {
 		

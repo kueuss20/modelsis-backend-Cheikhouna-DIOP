@@ -1,5 +1,6 @@
 package modelsis.cheikhounadiop.entity;
 
+import java.io.Serializable;
 import java.time.Instant;
 
 import javax.persistence.Column;
@@ -21,14 +22,19 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Table(name = "CD_PRODUCT")
 @SequenceGenerator(name = "SEQ_FACTURES", sequenceName = "SEQ_PRODUCT", initialValue = 100, allocationSize = 10)
-public class Product {
+public class Product implements Serializable{
 
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2033150185677758430L;
 	@Column(name="P_ID")
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "SEQ_PRODUCT")
 	@EqualsAndHashCode.Include
 	private Long id;
+	@Column(name ="P_NAME",unique = true,nullable = false)
 	private String name;
 	@JoinColumn(name ="P_TYPE")
 	@ManyToOne(fetch = FetchType.LAZY)

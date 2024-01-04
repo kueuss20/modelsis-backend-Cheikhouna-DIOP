@@ -1,8 +1,10 @@
 package modelsis.cheikhounadiop.dto;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import modelsis.cheikhounadiop.entity.Product;
 
+@NoArgsConstructor
 @Data
 public class ProductDto {
 

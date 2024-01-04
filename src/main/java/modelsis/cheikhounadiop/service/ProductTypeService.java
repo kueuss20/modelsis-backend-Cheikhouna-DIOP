@@ -4,11 +4,13 @@ import java.time.Instant;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import modelsis.cheikhounadiop.entity.ProductType;
 import modelsis.cheikhounadiop.exception.ProductException;
 import modelsis.cheikhounadiop.repository.ProductTypeRepository;
 
+@Service
 public class ProductTypeService {
 
 	@Autowired
